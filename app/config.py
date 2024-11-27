@@ -9,6 +9,7 @@ class DBConfig(BaseModel):
     db_host: str
     db_port: int
 
+    @property
     def db_url(self):
         return f"postgresql+asyncpg://{self.db_user}:{self.db_password}@{self.db_host}:{self.db_port}/{self.db_name}"
 

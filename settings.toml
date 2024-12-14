@@ -6,8 +6,8 @@ app_host = "127.0.0.1"
 app_mount = "/api/v1"
 
 [db_settings]
-db_name = "postgres"
+db_name = "pay_service"
 db_user = "my_user"
 db_password = "my_password"
 db_host = "localhost"
-db_port = "5432"
+db_port = 5432

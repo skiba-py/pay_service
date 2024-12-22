@@ -1,8 +1,8 @@
 """initial migration
 
-Revision ID: ecd062651155
+Revision ID: f5e581389630
 Revises: 
-Create Date: 2024-12-07 14:25:40.799002
+Create Date: 2024-12-22 22:03:43.188026
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'ecd062651155'
+revision: str = 'f5e581389630'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -26,7 +26,7 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('company_id')
     )
     op.create_table('payments',
-    sa.Column('user_id', sa.UUID(), nullable=False),
+    sa.Column('user_id', sa.String(), nullable=False),
     sa.Column('payment_id', sa.String(), nullable=False),
     sa.Column('amount', sa.Numeric(precision=10, scale=2), nullable=False),
     sa.Column('email', sa.String(), nullable=True),
@@ -37,7 +37,8 @@ def upgrade() -> None:
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['company_id'], ['companies.company_id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('payment_id')
     )
     # ### end Alembic commands ###
 

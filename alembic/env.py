@@ -5,7 +5,7 @@ from sqlalchemy import pool
 from app.db import Base
 from alembic import context
 from app.config import settings
-from app.models.payments_model import Payments
+from app.models.payments_model import Payment
 from app.models.companies_model import Company
 
 # this is the Alembic Config object, which provides

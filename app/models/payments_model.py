@@ -4,11 +4,11 @@ from app.db import Base
 from app.models.base_model import BaseModel
 
 
-class Payments(BaseModel, Base):
+class Payment(BaseModel, Base):
     __tablename__ = "payments"
 
-    user_id = Column(UUID(as_uuid=True), nullable=False)
-    payment_id = Column(String, nullable=False)
+    user_id = Column(String, nullable=False)
+    payment_id = Column(String, nullable=False, unique=True)
     amount = Column(Numeric(10, 2), nullable=False)
     email = Column(String)
     type = Column(String(30), nullable=False)

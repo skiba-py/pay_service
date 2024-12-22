@@ -3,8 +3,4 @@ from app.api.companies_api import companies_router
 from app.api.misc_api import misc_router
 
 
-ROUTES = {
-    "": misc_router,
-    "/companies": companies_router,
-    "/payments": payments_router
-}
+ROUTES = {"": misc_router, "/companies": companies_router, "/payments": payments_router}
